@@ -25,7 +25,7 @@ end
 function sum_pat(x, y)
     local new = {}
     
-    -- если нужно сумировать множество патернов.
+    -- если нужно суммировать множество патернов.
     if is_table(x) and is_null(y) then
         for _, v in pairs (x) do    
             modify_pat(new, v)
