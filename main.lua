@@ -9,5 +9,6 @@ print (get_mal_name())
 pat_print(mal_pat)
 
 print ""
+
 print (get_fem_name())
 pat_print (fem_pat)
