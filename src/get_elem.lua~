@@ -1,3 +1,0 @@
-function get_elem(x)
-    return (random_elem(lines_from(x))
-end
