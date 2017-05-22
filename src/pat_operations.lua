@@ -1,11 +1,15 @@
+dofile ("./src/baze.lua")
+dofile ("./src/random/number.lua")  -- генераторы случайных чисел.
+
 -- изменить патерн
 function modify_pat(x, y)
     for k, v in pairs (y) do
-        if x[k] == nil then
+        if is_null(x[k]) then
             x[k] = v
         else
             x[k] = x[k] + v
 end end end
+
 
 -- скопировать патерн.
 function copy_pat(pat)
@@ -16,12 +20,13 @@ function copy_pat(pat)
     return new
 end
 
+
 -- сумировать патерны.
 function sum_pat(x, y)
     local new = {}
     
     -- если нужно сумировать множество патернов.
-    if type (x) == "table" and y == nil then
+    if is_table(x) and is_null(y) then
         for _, v in pairs (x) do    
             modify_pat(new, v)
         end
@@ -32,3 +37,13 @@ function sum_pat(x, y)
     return new
 end
 
+
+-- создать персонажа по патерну.
+function pat_print (pat)
+    for k, v in pairs (pat) do
+        if k == "ГР" then
+            print (k..":", gr_rand(v)) 
+        else 
+        print (k..":", v - log_randomR (v))
+    end end
+end
