@@ -27,3 +27,5 @@ for k, v in pairs (fem_pat) do
         print (k..":", v - log_randomR (v))
 end end
 
+print (to_femal_patronymic("Радионыч"))
+print (to_femal_patronymic("Анатольевич"))

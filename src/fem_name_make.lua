@@ -19,5 +19,8 @@ end end
 -- строим по мужскому отчеству женское.
 function to_femal_patronymic(patronymic)
     local rev_patronymic = string.reverse(patronymic)
-    return string.reverse(string.sub (rev_patronymic, 5)) .. "на"
-end
+    if string.find(patronymic, "ыч") then
+        return string.reverse(string.sub (rev_patronymic, 5)) .. "овна"
+    else
+        return string.reverse(string.sub (rev_patronymic, 5)) .. "на"
+end end

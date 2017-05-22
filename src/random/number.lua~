@@ -42,7 +42,7 @@ function gr_rand (x)
         return 0
     elseif r < 0.9 then
         return 4
-    elseif r < 0.95 then
+    elseif r < 0.9.5 then
         return 5
     elseif r < 0.975 then
         return 6
