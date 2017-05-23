@@ -64,8 +64,8 @@ function pat_print (pat)
         print ("Грудь:\t",        breast_rand(pat.Br))
     end
     print ""
-    print "Эмоциональная склоннасть"
-    print ("Страх/Гнев:"    )
-    print ("Печаль/Радость:")
+    print "Эмоциональная склонность"
+    print ("Страх/Гнев:", pat.FA + log_randomR(3))
+    print ("Печаль/Радость:", pat.SH + log_randomR(3))
     print "--------------------------------------------------------------------"
 end
