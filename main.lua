@@ -9,5 +9,5 @@ dofile ("./src/patterns/operations.lua")    -- операции над шабл�
 pat_print(mal_pat)
 pat_print(fem_pat)
 
-l = [1,2,3,4]
-print (#l % 2)
+l = {1,2,3,4,5}
+print (#l / 2)
