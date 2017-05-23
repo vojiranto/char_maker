@@ -42,7 +42,7 @@ end
 
 -- создать персонажа по патерну.
 function pat_print (pat)
-    print "--------------------------------------------------------------------"
+    print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
     local name
     if pat.sex == "mal" then
         name = get_mal_name()
@@ -59,13 +59,13 @@ function pat_print (pat)
     print ""
     print "Вторичные параметры"
     print ("Телосложение:", get_body_type(pat))
-    print ("Рост:\t",   random_shift_number(pat.Gr, 1.28))
+    print ("Рост:\t",   random_shift_number(pat.Gr, 1.28) .. " см" )
     if pat.sex == "fem" then
         print ("Грудь:\t",        breast_rand(pat.Br))
     end
     print ""
     print "Эмоциональная склонность"
-    print ("Страх/Гнев:", pat.FA + log_randomR(3))
+    print ("Страх/Гнев:",     pat.FA + log_randomR(3))
     print ("Печаль/Радость:", pat.SH + log_randomR(3))
-    print "--------------------------------------------------------------------"
+    print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
 end
