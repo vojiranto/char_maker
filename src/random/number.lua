@@ -29,23 +29,18 @@ function log_randomR (x)
     else
         return  log_randomD (x)
 end end
+local rand_number = {}
+
+-- распределение для двойки.
+rand_number[2] = {
+    [0] = 0.1125, [1] = 0.2,  [2] = 0.3,   [3] = 0.2,
+    [4] = 0.1,    [5] = 0.05, [6] = 0.025, [7] = 0.0125}
 
 function gr_rand (x)
-    local r = math.random() 
-    if r < 0.3 then
-        return 2
-    elseif r < 0.5 then
-        return 1
-    elseif r < 0.7 then
-        return 3
-    elseif r < 0.8 then
-        return 0
-    elseif r < 0.9 then
-        return 4
-    elseif r < 0.95 then
-        return 5
-    elseif r < 0.975 then
-        return 6
-    else
-        return 7
-end end
+    local r, l = math.random(), 0
+
+    for k, v in pairs (rand_number[x]) do
+        l = l + v
+        if r < l then
+            return k
+end end end
