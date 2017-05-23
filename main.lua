@@ -5,10 +5,7 @@ dofile ("./src/random/elem.lua")            -- выбор случайного �
 dofile ("./src/fem_name_make.lua")          -- преобразование имён в женский род
 dofile ("./src/patterns/operations.lua")    -- операции над шаблонами.
 
-for i = 1, 20 do
-    pat_print(mal_pat)
-end
 
-for i = 1, 20 do
-    pat_print (fem_pat)
-end
+pat_print(mal_pat)
+pat_print(fem_pat)
+
