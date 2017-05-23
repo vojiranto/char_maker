@@ -15,16 +15,17 @@ end
 
 
 -- разбиваем строчку на имя и число
-function to_pair_form(x)
-    for k, v in ipairs (x) do
-        x[k] = to_pair(v) 
+function to_pair_form(baze)
+    for k, v in ipairs (baze) do
+        baze[k] = to_pair(v) 
 end end
 
 
 -- пересчитываем частотные ключи.
-function norm_num_key_of(x)
+function norm_num_key_of(baze)
     local j = 0
     for k, v in ipairs (baze) do
+        print (v.name, v.num)
         j = j + v.num
         baze[k].num = j
 end end
@@ -39,7 +40,10 @@ function make_baze(x)
 
     return baze
 end
-
+--[[
 function find_in(key, baze)
-end
-
+    local i = to_int (#baze / 2)
+    while i > 1 do
+    
+end end
+--]]

@@ -4,10 +4,8 @@ dofile ("./src/patterns/patterns.lua")      -- шаблоны персонаже
 dofile ("./src/random/elem.lua")            -- выбор случайного элемента
 dofile ("./src/fem_name_make.lua")          -- преобразование имён в женский род
 dofile ("./src/patterns/operations.lua")    -- операции над шаблонами.
-
+dofile ("./src/data_baze.lua")
 
 pat_print(mal_pat)
 pat_print(fem_pat)
 
-l = {1,2,3,4,5}
-print (#l / 2)
