@@ -25,7 +25,6 @@ end end
 function norm_num_key_of(baze)
     local j = 0
     for k, v in ipairs (baze) do
-        print (v.name, v.num)
         j = j + v.num
         baze[k].num = j
 end end
@@ -40,10 +39,32 @@ function make_baze(x)
 
     return baze
 end
---[[
+
+
+-- поиск по массиву за log(key)
 function find_in(key, baze)
     local i = to_int (#baze / 2)
-    while i > 1 do
-    
-end end
---]]
+    local j = i
+
+    -- локализуем.
+    while i > 0 do
+        i = to_int(i/2)
+        if baze[j].num > key then
+            j = j - i
+        elseif baze[j].num < key then
+            j = j + i
+        else
+            return baze[j].name
+    end end
+
+    -- откатываемся вверх, если нужно.
+    while baze[j].num < key and j < #baze do
+        j = j + 1
+    end
+
+    -- откатыаемся вниз, если нужно.
+    while baze[j].num > key and j > 1 do
+        j = j - 1
+    end
+    return baze[j].name
+end

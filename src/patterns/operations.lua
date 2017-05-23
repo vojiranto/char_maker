@@ -1,5 +1,6 @@
 dofile ("./src/baze.lua")
 dofile ("./src/random/number.lua")  -- генераторы случайных чисел.
+dofile ("./src/random/elem.lua")
 dofile ("./src/random/breast.lua")
 dofile ("./src/patterns/body_type.lua")
 dofile ("./src/random/hair_color.lua")

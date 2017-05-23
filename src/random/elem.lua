@@ -1,34 +1,29 @@
 dofile ("./src/random/number.lua")
-dofile ("./src/files.lua")
+dofile ("./src/data_baze.lua")
 
--- взятие случайного элемента из списка.
-function random_elem(x)
-    return x[math.random(1, #x)]
+lastnames_female   = make_baze ("./data/lastnames_female.txt")
+lastnames_male     = make_baze ("./data/lastnames_male.txt")
+names_female       = make_baze ("./data/names_female.txt")
+names_male         = make_baze ("./data/names_male.txt")
+patronymics_female = make_baze ("./data/patronymics_female.txt")
+patronymics_male   = make_baze ("./data/patronymics_male.txt")
+
+function get_rand_elem(x)
+    return find_in(math.random (1, x[#x].num), x)
 end
 
-
--- взятие случайной строчки из файла.
-function get_elem_from(x)
-    return random_elem(lines_from(x))
+function get_name(names, patronymics, lastnames)
+    return  get_rand_elem(names) .. " " ..
+            get_rand_elem(patronymics) .. " " ..
+            get_rand_elem(lastnames)
 end
-
 
 -- получить мужское имя.
 function get_mal_name()
-    local mal_name        = get_elem_from("./data/mal_names")
-    local mal_patronymic  = get_elem_from("./data/mal_patronymics")
-    local mal_surname     = get_elem_from("./data/mal_surnames")
-    return mal_name.." "..mal_patronymic.." "..mal_surname
+    return get_name (names_male, patronymics_male, lastnames_male)
 end
 
 -- получить женское имя
-function get_fem_name(mal_surname)
-    if is_null(mal_surname) then
-        mal_surname = get_elem_from("./data/mal_surnames")
-    end
-
-    local fem_name        = get_elem_from("./data/norm_fem_names")
-    local fem_patronymic  = to_femal_patronymic(
-                                get_elem_from("./data/mal_patronymics"))
-    return fem_name.." " ..fem_patronymic.." "..to_femal_surname(mal_surname)
+function get_fem_name()
+    return get_name (names_female, patronymics_female, lastnames_female)
 end
