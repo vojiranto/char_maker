@@ -31,7 +31,7 @@ function log_randomR (x)
 end end
 
 
--- распределение по таблице.
+-- распределение вероятностей по таблице.
 function discrete_rand (x)
     local r, l = math.random(), 0
     for k, v in pairs (x) do

@@ -1,6 +1,7 @@
 dofile ("./src/baze.lua")
 dofile ("./src/random/number.lua")  -- генераторы случайных чисел.
 dofile ("./src/random/breast.lua")
+dofile ("./src/patterns/body_type.lua")
 
 -- изменить патерн
 function modify_pat(x, y)
@@ -44,6 +45,9 @@ function pat_print (pat)
     for k, v in pairs (pat) do
         if k == "ГР" then
             print (k..":", breast_rand(v)) 
+        elseif k == "sex" then
+        elseif k == "Телосложение" then
+            print (k..":", body_tape [pat.sex] [v - log_randomR (v)])
         else 
         print (k..":", v - log_randomR (v))
     end end
