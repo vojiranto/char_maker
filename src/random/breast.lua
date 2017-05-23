@@ -23,10 +23,5 @@ rand_number[3] = {
 
 
 function breast_rand (x)
-    local r, l = math.random(), 0
-
-    for k, v in pairs (rand_number[x]) do
-        l = l + v
-        if r < l then
-            return k
-end end end
+    return discrete_rand (rand_number[x])
+end

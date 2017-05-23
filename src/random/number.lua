@@ -29,3 +29,13 @@ function log_randomR (x)
     else
         return  log_randomD (x)
 end end
+
+
+-- распределение по таблице.
+function discrete_rand (x)
+    local r, l = math.random(), 0
+    for k, v in pairs (x) do
+        l = l + v
+        if r < l then
+            return k
+end end end
