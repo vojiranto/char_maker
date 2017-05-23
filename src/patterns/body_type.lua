@@ -16,5 +16,5 @@ body_type["mal"] = {
     [5] = "Толстый"}
 
 function get_body_type (pat)
-    return body_type [pat.sex] [random_shift_number(pat["Телосложение"])]
+    return body_type [pat.sex] [random_shift_number(pat.Bt)]
 end
