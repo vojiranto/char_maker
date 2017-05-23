@@ -47,11 +47,12 @@ function pat_print (pat)
     print ("Сила:\t",   random_shift_number(pat["СЛ"]))
     print ("Ловкость:", random_shift_number(pat["ЛВ"]))
     print ("Здоровье:", random_shift_number(pat["ЗД"]))
-    print ("Интелект:", random_shift_number(pat["ИН"]))
+    print ("Интеллект:", random_shift_number(pat["ИН"]))
 
     print ""
     print "Вторичные параметры"
     print ("Телосложение:", get_body_type(pat))
+    print ("Рост:\t",   random_shift_number(pat["Рост"], 1.28))
     if pat.sex == "fem" then
         print ("Грудь:\t",        breast_rand(pat["ГР"]))
     end
