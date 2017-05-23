@@ -42,13 +42,18 @@ end
 
 -- создать персонажа по патерну.
 function pat_print (pat)
-    for k, v in pairs (pat) do
-        if k == "ГР" then
-            print (k..":", breast_rand(v)) 
-        elseif k == "sex" then
-        elseif k == "Телосложение" then
-            print (k..":", body_tape [pat.sex] [v - log_randomR (v)])
-        else 
-        print (k..":", v - log_randomR (v))
-    end end
+    print "--------------------------------------------------------------------"
+    print "Базовые параметры"
+    print ("Сила:\t",   random_shift_number(pat["СЛ"]))
+    print ("Ловкость:", random_shift_number(pat["ЛВ"]))
+    print ("Здоровье:", random_shift_number(pat["ЗД"]))
+    print ("Интелект:", random_shift_number(pat["ИН"]))
+
+    print ""
+    print "Вторичные параметры"
+    print ("Телосложение:", get_body_type(pat))
+    if pat.sex == "fem" then
+        print ("Грудь:\t",        breast_rand(pat["ГР"]))
+    end
+    print "--------------------------------------------------------------------"
 end

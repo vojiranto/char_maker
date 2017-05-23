@@ -31,6 +31,10 @@ function log_randomR (x)
 end end
 
 
+function random_shift_number(v)
+    return v - log_randomR (v)
+end
+
 -- распределение вероятностей по таблице.
 function discrete_rand (x)
     local r, l = math.random(), 0

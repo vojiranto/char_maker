@@ -8,8 +8,8 @@ dofile ("./src/patterns/operations.lua")    -- операции над шабл�
 print (get_mal_name())
 pat_print(mal_pat)
 
-print ""
-
-print (get_fem_name())
-pat_print (sum_pat(fem_pat, athlete_pat))
-
+for i = 1, 20 do
+    print ""
+    print (get_fem_name())
+    pat_print (sum_pat(fem_pat, athlete_pat))
+end
