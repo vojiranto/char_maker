@@ -2,6 +2,7 @@ dofile ("./src/baze.lua")
 dofile ("./src/random/number.lua")  -- генераторы случайных чисел.
 dofile ("./src/random/breast.lua")
 dofile ("./src/patterns/body_type.lua")
+dofile ("./src/random/hair_color.lua")
 
 -- изменить патерн
 function modify_pat(x, y)
@@ -58,6 +59,7 @@ function pat_print (pat)
 
     print ""
     print "Вторичные параметры"
+    print ("Цвет волос:", get_hair_color())
     print ("Цвет глаз:",  get_eye_color())
     print ("Телосложение:", get_body_type(pat))
     print ("Рост:\t",   random_shift_number(pat.Gr, 1.28) .. " см" )
