@@ -34,7 +34,7 @@ end end
 
 function random_shift_number(v, b)
     b = def(b, 2)
-    return v - log_randomR (v, b)
+    return v + log_randomR (v, b)
 end
 
 -- распределение вероятностей по таблице.

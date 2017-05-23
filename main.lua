@@ -11,5 +11,5 @@ pat_print(mal_pat)
 for i = 1, 20 do
     print ""
     print (get_fem_name())
-    pat_print (sum_pat(fem_pat, athlete_pat))
+    pat_print (fem_pat)
 end

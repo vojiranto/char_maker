@@ -1,14 +1,14 @@
 dofile ("./src/random/number.lua")
 
 body_type = {}
-body_type ["fem"]= {
+body_type.fem = {
     [1] = "Очень худая",
     [2] = "Худая",
     [3] = "Нормальное",
     [4] = "Полная",
     [5] = "Толстая"}
 
-body_type["mal"] = {
+body_type.mal = {
     [1] = "Очень худой",
     [2] = "Худой",
     [3] = "Нормальное",

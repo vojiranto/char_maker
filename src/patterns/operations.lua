@@ -44,10 +44,10 @@ end
 function pat_print (pat)
     print "--------------------------------------------------------------------"
     print "Базовые параметры"
-    print ("Сила:\t",   random_shift_number(pat.St, 4))
-    print ("Ловкость:", random_shift_number(pat.Dx, 4))
-    print ("Здоровье:", random_shift_number(pat.Ht, 4))
-    print ("Интеллект:", random_shift_number(pat.Iq,4))
+    print ("Сила:\t",   random_shift_number(pat.St))
+    print ("Ловкость:", random_shift_number(pat.Dx))
+    print ("Здоровье:", random_shift_number(pat.Ht))
+    print ("Интеллект:", random_shift_number(pat.Iq))
 
     print ""
     print "Вторичные параметры"

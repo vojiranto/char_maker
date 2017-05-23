@@ -23,7 +23,6 @@ end
 
 -- получить женское имя
 function get_fem_name(mal_surname)
-
     if is_null(mal_surname) then
         mal_surname = get_elem_from("./data/mal_surnames")
     end
