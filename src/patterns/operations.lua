@@ -63,5 +63,9 @@ function pat_print (pat)
     if pat.sex == "fem" then
         print ("Грудь:\t",        breast_rand(pat.Br))
     end
+    print ""
+    print "Эмоциональная склоннасть"
+    print ("Страх/Гнев:"    )
+    print ("Печаль/Радость:")
     print "--------------------------------------------------------------------"
 end
