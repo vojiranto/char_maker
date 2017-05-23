@@ -11,4 +11,4 @@ pat_print(mal_pat)
 print ""
 
 print (get_fem_name())
-pat_print (fem_pat)
+pat_print (sum_pat(fem_pat, athlete_pat))

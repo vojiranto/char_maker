@@ -1,5 +1,6 @@
 dofile ("./src/baze.lua")
 dofile ("./src/random/number.lua")  -- генераторы случайных чисел.
+dofile ("./src/random/breast.lua")
 
 -- изменить патерн
 function modify_pat(x, y)
@@ -42,7 +43,7 @@ end
 function pat_print (pat)
     for k, v in pairs (pat) do
         if k == "ГР" then
-            print (k..":", gr_rand(v)) 
+            print (k..":", breast_rand(v)) 
         else 
         print (k..":", v - log_randomR (v))
     end end
