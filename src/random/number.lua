@@ -30,6 +30,7 @@ function log_randomR (x)
         return  log_randomD (x)
 end end
 
+-- таблица вероятностей размера груди при разном исходном размере шаблона.
 local rand_number = {}
 -- распределение для нуля.
 rand_number[0] = {
