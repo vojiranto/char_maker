@@ -21,7 +21,7 @@ end
 -- [-x, x]
 function log_randomR (x, b)
     local log_randomD = function (x, b)
-        return x - 1 - to_int (math.log(math.random (1, b^x - 1 - b^(x-2)), b))
+        return x - 1 - to_int (math.log(math.random (1, b^x - 1 - b^(x-b)), b))
     end
 
     b = def(b, 2)
