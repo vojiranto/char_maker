@@ -1,4 +1,5 @@
 dofile ("./src/patterns/operations.lua")
+dofile ("./src/random/eye_color.lua")
 
 -- базовый шаблон для человека.
 human_pat = {

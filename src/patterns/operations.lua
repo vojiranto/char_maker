@@ -58,6 +58,7 @@ function pat_print (pat)
 
     print ""
     print "Вторичные параметры"
+    print ("Цвет глаз:",  get_eye_color())
     print ("Телосложение:", get_body_type(pat))
     print ("Рост:\t",   random_shift_number(pat.Gr, 1.28) .. " см" )
     if pat.sex == "fem" then
