@@ -51,11 +51,6 @@ rand_number[3] = {
     [0] = 0.0625, [1] = 0.1, [2] = 0.2,   [3] = 0.3,
     [4] = 0.2,    [5] = 0.1, [6] = 0.025, [7] = 0.0125}
 
-local t = 0
-for _, v in pairs (rand_number[0]) do
-    t = t + v
-end
-print (t)
 
 function gr_rand (x)
     local r, l = math.random(), 0
