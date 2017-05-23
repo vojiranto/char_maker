@@ -40,7 +40,6 @@ function make_baze(x)
     return baze
 end
 
-lines = lines_from("./data/name_baze/lastnames_female.txt")
+function find_in(key, baze)
+end
 
-print (to_pair(lines[1000]).name)
-print (lines[1000])
