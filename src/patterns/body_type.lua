@@ -23,7 +23,7 @@ end
 -- вычисляем вес.
 -- v / r^2 = i >=> v ~ i * r^2
 function get_weight(i, Gr, St, Br)
-    local table = {15, 18, 22, 27, 32}
+    local table = {17, 20, 24, 29, 35}
     Br = def (Br, 0)
     return table[i] * (Gr/100)^2 + 0.15*Br  * ((St/10)^1/3)
 end

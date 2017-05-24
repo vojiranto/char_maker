@@ -40,6 +40,7 @@ end
 -- распределение вероятностей по таблице.
 function discrete_rand (x)
     local r, l = math.random(), 0
+
     for k, v in pairs (x) do
         l = l + v
         if r < l then

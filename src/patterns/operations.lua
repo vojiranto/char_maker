@@ -41,49 +41,62 @@ function sum_pat(x, y)
     return new
 end
 
+function make_char(pat)
+    local char = {}
 
--- создать персонажа по патерну.
-function pat_print (pat)
-    print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
-    local name
-    if pat.sex == "mal" then
-        name = get_mal_name()
-    else
-        name = get_fem_name()
+    char.sex = pat.sex
+        -- базовые атрибуты.
+    for _, k in pairs ({"St", "Dx", "Ht", "Iq", "Bt"}) do
+        char[k] = random_shift_number(pat[k])
     end
-    print (name)
+    char.hair_color = get_hair_color()
+    char.eye_color  = get_eye_color()
+    char.Gr         = random_shift_number(pat.Gr, 1.28)
+    if char.sex == "mal" then
+        char.name = get_mal_name()
+    else
+        char.name = get_fem_name()
+
+        -- определяем размер груди.
+        if char.Gr < 145 then
+            char.Br   = breast_rand(pat.Br - 2)
+        elseif char.Gr < 155 then
+            char.Br   = breast_rand(pat.Br - 1)
+        else
+            char.Br   = breast_rand(pat.Br)
+    end end
+    -- эмоции.
+    for _, k in pairs ({"FA", "SH"}) do
+        char[k] = pat[k]+ log_randomR(3)
+    end
+    return char
+end
+
+-- печать персонажа.
+function char_print (char)
+    print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
+    print (char.name)
     print "Базовые параметры"
-    
-    local St = random_shift_number(pat.St)
-    print ("Сила:\t", St)
-    print ("Ловкость:", random_shift_number(pat.Dx))
-    print ("Здоровье:", random_shift_number(pat.Ht))
-    print ("Интеллект:", random_shift_number(pat.Iq))
+    print ("Сила:\t", char.St)
+    print ("Ловкость:", char.Dx)
+    print ("Здоровье:", char.Ht)
+    print ("Интеллект:", char.Iq)
 
     print ""
     print "Вторичные параметры"
-    print ("Цвет волос:", get_hair_color())
-    print ("Цвет глаз:",  get_eye_color())
+    print ("Цвет волос:", char.hair_color)
+    print ("Цвет глаз:",  char.eye_color)
     
-    local BT = random_shift_number(pat.Bt)
-    print ("Телосложение:", body_type [pat.sex][BT])
-
-    local Gr = random_shift_number(pat.Gr, 1.28)
-    print ("Рост:\t", Gr.." см" )
-    
-    local Br
-    if pat.sex == "fem" then
-        Br = breast_rand(pat.Br)
-    end
-    
-    print ("Вес:\t", get_weight(BT, Gr, St, Br).." кг")
-    if pat.sex == "fem" then
-        print ("Грудь:\t", Br)
+    print ("Телосложение:", body_type [char.sex][char.Bt])
+    print ("Рост:\t", char.Gr.." см" )
+    print ("Вес:\t", get_weight(char.Bt, char.Gr, char.St, char.Br).." кг")
+    if char.sex == "fem" then
+        print ("Грудь:\t", char.Br)
     end
 
     print ""
     print "Эмоциональная склонность"
-    print ("Страх/Гнев:",     pat.FA + log_randomR(3))
-    print ("Печаль/Радость:", pat.SH + log_randomR(3))
+    print ("Страх/Гнев:", char.FA)
+    print ("Печаль/Радость:", char.SH)
     print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
 end
