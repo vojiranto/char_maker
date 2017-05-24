@@ -3,8 +3,8 @@ math.randomseed(os.time())
 dofile ("./src/patterns/patterns.lua")      -- шаблоны персонажей.
 dofile ("./src/patterns/operations.lua")    -- операции над шаблонами.
 
-char_print(make_char(mal_pat))
+character_print(make_character(mal_pattern))
 print ""
 for i = 1, 20 do
-    char_print(make_char(fem_pat))
+    character_print(make_character(fem_pattern))
 end

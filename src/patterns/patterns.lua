@@ -2,7 +2,7 @@ dofile ("./src/patterns/operations.lua")
 dofile ("./src/random/eye_color.lua")
 
 -- базовый шаблон для человека.
-human_pat = {
+human_pattern = {
     St = 10,    -- сила
     Dx = 10,    -- ловкость
     Iq = 10,    -- интелект
@@ -14,11 +14,11 @@ human_pat = {
 }
 
 -- мужской шаблон.
-mal_pat = sum_pat (human_pat, 
+mal_pattern = sum_pat (human_pattern, 
     {sex = "mal", St = 1, Dx = -1, Gr = 5, FA = 1})
 
 -- женский шаблон.
-fem_pat = sum_pat (human_pat, 
+fem_pattern = sum_pat (human_pattern, 
     {sex = "fem", St = -1, Dx = 1, Br = 2, Gr = -5, FA = -1})
 
 --------------------------------------------------------------------------------

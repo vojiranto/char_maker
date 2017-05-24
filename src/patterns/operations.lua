@@ -41,62 +41,66 @@ function sum_pat(x, y)
     return new
 end
 
-function make_char(pat)
-    local char = {}
+function make_character(pattern)
+    local character = {}
 
-    char.sex = pat.sex
+    character.sex = pattern.sex
         -- базовые атрибуты.
     for _, k in pairs ({"St", "Dx", "Ht", "Iq", "Bt"}) do
-        char[k] = random_shift_number(pat[k])
+        character[k] = random_shift_number(pattern[k])
     end
-    char.hair_color = get_hair_color()
-    char.eye_color  = get_eye_color()
-    char.Gr         = random_shift_number(pat.Gr, 1.28)
-    if char.sex == "mal" then
-        char.name = get_mal_name()
+    character.hair_color = get_hair_color()
+    character.eye_color  = get_eye_color()
+    character.Gr         = random_shift_number(pattern.Gr, 1.28)
+    if character.sex == "mal" then
+        character.name = get_mal_name()
     else
-        char.name = get_fem_name()
+        character.name = get_fem_name()
 
         -- определяем размер груди.
-        if char.Gr < 145 then
-            char.Br   = breast_rand(pat.Br - 2)
-        elseif char.Gr < 155 then
-            char.Br   = breast_rand(pat.Br - 1)
+        if character.Gr < 145 then
+            character.Br   = breast_rand(pattern.Br - 2)
+        elseif character.Gr < 155 then
+            character.Br   = breast_rand(pattern.Br - 1)
         else
-            char.Br   = breast_rand(pat.Br)
+            character.Br   = breast_rand(pattern.Br)
     end end
     -- эмоции.
     for _, k in pairs ({"FA", "SH"}) do
-        char[k] = pat[k]+ log_randomR(3)
+        character[k] = pattern[k]+ log_randomR(3)
     end
-    return char
+    return character
 end
 
 -- печать персонажа.
-function char_print (char)
+function character_print (character)
     print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
-    print (char.name)
+    print (character.name)
     print "Базовые параметры"
-    print ("Сила:\t", char.St)
-    print ("Ловкость:", char.Dx)
-    print ("Здоровье:", char.Ht)
-    print ("Интеллект:", char.Iq)
+    print ("Сила:\t", character.St)
+    print ("Ловкость:", character.Dx)
+    print ("Здоровье:", character.Ht)
+    print ("Интеллект:", character.Iq)
 
     print ""
     print "Вторичные параметры"
-    print ("Цвет волос:", char.hair_color)
-    print ("Цвет глаз:",  char.eye_color)
+    print ("Цвет волос:", character.hair_color)
+    print ("Цвет глаз:",  character.eye_color)
     
-    print ("Телосложение:", body_type [char.sex][char.Bt])
-    print ("Рост:\t", char.Gr.." см" )
-    print ("Вес:\t", get_weight(char.Bt, char.Gr, char.St, char.Br).." кг")
-    if char.sex == "fem" then
-        print ("Грудь:\t", char.Br)
+    print ("Телосложение:", body_type [character.sex][character.Bt])
+    print ("Рост:\t", character.Gr.." см" )
+    print ("Вес:\t", get_weight(
+        character.Bt,
+        character.Gr,
+        character.St,
+        character.Br).." кг")
+    if character.sex == "fem" then
+        print ("Грудь:\t", character.Br)
     end
 
     print ""
     print "Эмоциональная склонность"
-    print ("Страх/Гнев:", char.FA)
-    print ("Печаль/Радость:", char.SH)
+    print ("Страх/Гнев:", character.FA)
+    print ("Печаль/Радость:", character.SH)
     print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
 end
