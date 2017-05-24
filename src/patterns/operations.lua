@@ -53,7 +53,9 @@ function pat_print (pat)
     end
     print (name)
     print "Базовые параметры"
-    print ("Сила:\t",   random_shift_number(pat.St))
+    
+    local St = random_shift_number(pat.St)
+    print ("Сила:\t", St)
     print ("Ловкость:", random_shift_number(pat.Dx))
     print ("Здоровье:", random_shift_number(pat.Ht))
     print ("Интеллект:", random_shift_number(pat.Iq))
@@ -62,11 +64,23 @@ function pat_print (pat)
     print "Вторичные параметры"
     print ("Цвет волос:", get_hair_color())
     print ("Цвет глаз:",  get_eye_color())
-    print ("Телосложение:", get_body_type(pat))
-    print ("Рост:\t",   random_shift_number(pat.Gr, 1.28) .. " см" )
+    
+    local BT = random_shift_number(pat.Bt)
+    print ("Телосложение:", body_type [pat.sex][BT])
+
+    local Gr = random_shift_number(pat.Gr, 1.28)
+    print ("Рост:\t", Gr.." см" )
+    
+    local Br
     if pat.sex == "fem" then
-        print ("Грудь:\t",        breast_rand(pat.Br))
+        Br = breast_rand(pat.Br)
     end
+    
+    print ("Вес:\t", get_weight(BT, Gr, St, Br).." кг")
+    if pat.sex == "fem" then
+        print ("Грудь:\t", Br)
+    end
+
     print ""
     print "Эмоциональная склонность"
     print ("Страх/Гнев:",     pat.FA + log_randomR(3))
