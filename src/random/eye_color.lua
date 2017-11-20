@@ -1,5 +1,3 @@
-dofile ("./src/random/number.lua")
-
 rus_eye_color = {
     ["серый"] = 0.5,
     ["карий"] = 0.25,
@@ -10,5 +8,5 @@ rus_eye_color = {
 
 
 function get_eye_color()
-    return discrete_rand(rus_eye_color)
+    return random.discrete(rus_eye_color)
 end

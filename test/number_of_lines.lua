@@ -1,4 +1,6 @@
 #!/usr/bin/lua5.2
+-- Подсчитываем число строк во всех файлах проекта.
+
 dofile ("./src/files.lua")
 
 function number_of_file_lines(pr, postf, files)
@@ -22,5 +24,10 @@ i = i + number_of_file_lines("./src/", ".lua",
 i = i + number_of_file_lines("", ".lua", {"main"})
 
 i = i + number_of_file_lines("./test/", ".lua", {"number_of_lines"})
+print ("Строк кода:\t", i)
+local j = 0
+j = j + number_of_file_lines("./data/",".txt", {
+    "lastnames_female", "lastnames_male",     "names_female",
+    "names_male",       "patronymics_female", "patronymics_male"})
+print ("Имён в базе данных:", j)
 
-print (i)

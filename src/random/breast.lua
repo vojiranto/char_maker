@@ -1,4 +1,3 @@
-dofile ("./src/random/number.lua")
 -- таблица вероятностей размера груди при разном исходном размере шаблона.
 local rand_number = {}
 -- распределение для нуля.
@@ -23,5 +22,5 @@ rand_number[3] = {
 
 
 function breast_rand (x)
-    return discrete_rand (rand_number[x])
+    return random.discrete(rand_number[x])
 end

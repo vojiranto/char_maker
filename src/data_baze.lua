@@ -1,5 +1,3 @@
-dofile("./src/files.lua")
-
 -- русские буквы
 uppercase_rus_chars = "ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
 lowercase_rus_chars = "ёйцукенгшщзхъфывапролджэячсмитьбю"
@@ -32,7 +30,7 @@ end end
 
 -- формируем базу для поиска имён.
 function make_baze(x)
-    local baze = lines_from(x)
+    local baze = new.File(x).lines()
 
     to_pair_form(baze)
     norm_num_key_of(baze)
@@ -43,12 +41,12 @@ end
 
 -- поиск по массиву за log(key)
 function find_in(key, baze)
-    local i = to_int (#baze / 2)
+    local i = round(#baze / 2)
     local j = i
 
     -- локализуем.
     while i > 0 do
-        i = to_int(i/2)
+        i = round(i/2)
         if baze[j].num > key then
             j = j - i
         elseif baze[j].num < key then

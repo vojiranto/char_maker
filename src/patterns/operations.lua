@@ -1,6 +1,3 @@
-dofile ("./src/baze.lua")
-dofile ("./src/random/number.lua")  -- генераторы случайных чисел.
-dofile ("./src/random/elem.lua")
 dofile ("./src/random/breast.lua")
 dofile ("./src/patterns/body_type.lua")
 dofile ("./src/random/hair_color.lua")
@@ -8,7 +5,7 @@ dofile ("./src/random/hair_color.lua")
 -- изменить патерн
 function modify_pat(x, y)
     for k, v in pairs (y) do
-        if is_null(x[k]) then
+        if x[k] == nil then
             x[k] = v
         else
             x[k] = x[k] + v
@@ -30,7 +27,7 @@ function sum_pat(x, y)
     local new = {}
     
     -- если нужно суммировать множество патернов.
-    if is_table(x) and is_null(y) then
+    if type(x) == "table" and y == nil then
         for _, v in pairs (x) do    
             modify_pat(new, v)
         end
@@ -47,15 +44,15 @@ function make_character(pattern)
     character.sex = pattern.sex
         -- базовые атрибуты.
     for _, k in pairs ({"St", "Dx", "Ht", "Iq", "Bt"}) do
-        character[k] = random_shift_number(pattern[k])
+        character[k] = random.shiftNumber(pattern[k])
     end
     character.hair_color = get_hair_color()
     character.eye_color  = get_eye_color()
-    character.Gr         = random_shift_number(pattern.Gr, 1.28)
+    character.Gr         = random.shiftNumber(pattern.Gr, 1.28)
     if character.sex == "mal" then
-        character.name = get_mal_name()
+        character.name = randomMalName.get()
     else
-        character.name = get_fem_name()
+        character.name = randomFemalName.get()
 
         -- определяем размер груди.
         if character.Gr < 145 then
@@ -67,7 +64,7 @@ function make_character(pattern)
     end end
     -- эмоции.
     for _, k in pairs ({"FA", "SH"}) do
-        character[k] = pattern[k]+ log_randomR(3)
+        character[k] = pattern[k]+ random.logR(3)
     end
     return character
 end
