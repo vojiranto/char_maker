@@ -1,6 +1,5 @@
 dofile ("./src/random/breast.lua")
 dofile ("./src/patterns/body_type.lua")
-dofile ("./src/random/hair_color.lua")
 
 function get_hair_color()
     return random.discrete{
