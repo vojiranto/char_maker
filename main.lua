@@ -1,4 +1,6 @@
-#!/usr/bin/lua5.3
+#!/usr/bin/lua5.1
+
+utf8 = require "lua-utf8"
 
 function dolibs(libs)
     for _, fileName in pairs(libs) do
@@ -18,7 +20,7 @@ dolibs {
 }
 
 dofiles {
-    "data_baze",
+    "nameBaze",
     "randomName"
 }
 
@@ -42,6 +44,8 @@ random.init()
 
 dofile ("./src/patterns/patterns.lua")      -- шаблоны персонажей.
 dofile ("./src/patterns/operations.lua")    -- операции над шаблонами.
+
+--dofile ("test/find_test.lua")
 
 character_print(make_character(mal_pattern))
 print ""

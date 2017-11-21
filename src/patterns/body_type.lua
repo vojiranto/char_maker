@@ -26,6 +26,3 @@ function get_weight(i, Gr, St, Br)
     Br = Br or 0
     return table[i] * (Gr/100)^2 + 0.15*Br  * ((St/10)^1/3)
 end
-
-
-

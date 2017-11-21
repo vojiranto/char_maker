@@ -2,6 +2,17 @@ dofile ("./src/random/breast.lua")
 dofile ("./src/patterns/body_type.lua")
 dofile ("./src/random/hair_color.lua")
 
+function get_hair_color()
+    return random.discrete{
+        ["чёрный"]            = 0.1,
+        ["рыжий"]             = 0.05,
+        ["пшеничный"]         = 0.1,
+        ["русый"]             = 0.15, 
+        ["тёмно-каштановый"]  = 0.4,
+        ["светло-каштановый"] = 0.2
+    }
+end
+
 -- изменить патерн
 function modify_pat(x, y)
     for k, v in pairs (y) do

@@ -1,20 +1,18 @@
 function new.randomName (x)
     local private = {}
     local public  = {}
-    private.getRand = function (x)
-        return find_in(math.random (1, x[#x].num), x)
-    end
-    
+
     public.init = function ()
-        private.names       = make_baze ("./data/" .. x.names       .. ".txt")
-        private.lastnames   = make_baze ("./data/" .. x.lastnames   .. ".txt")
-        private.patronymics = make_baze ("./data/" .. x.patronymics .. ".txt")
+        private.names       = new.NameBaze("./data/" .. x.names       .. ".txt")
+        private.lastnames   = new.NameBaze("./data/" .. x.lastnames   .. ".txt")
+        private.patronymics = new.NameBaze("./data/" .. x.patronymics .. ".txt")
     end
-    
+
     public.get = function ()
-        return private.getRand(private.names) .. " "
-            .. private.getRand(private.patronymics) .. " " ..
-               private.getRand(private.lastnames)
+        return private.names.rand() .. " "
+            .. private.patronymics.rand() .. " " ..
+               private.lastnames.rand()
     end
+
     return copy(public)
 end
