@@ -2,7 +2,7 @@ function new.randomName (x)
     local private = {}
     local public  = {}
 
-    public.init = function ()
+    private.init = function ()
         private.names       = new.NameBaze("./data/" .. x.names       .. ".txt")
         private.lastnames   = new.NameBaze("./data/" .. x.lastnames   .. ".txt")
         private.patronymics = new.NameBaze("./data/" .. x.patronymics .. ".txt")
@@ -14,5 +14,6 @@ function new.randomName (x)
                private.lastnames.rand()
     end
 
+    private.init()
     return copy(public)
 end

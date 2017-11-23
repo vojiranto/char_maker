@@ -16,7 +16,7 @@ new = {}
 dolibs {
     "functions",
     "file",
-    "random",
+--    "random",
 }
 
 dofiles {
@@ -29,26 +29,17 @@ randomFemalName = new.randomName {
     names       = "names_female",
     patronymics = "patronymics_female",    
 }
-randomFemalName.init()
 
 randomMalName   = new.randomName {
     lastnames   = "lastnames_male",
     names       = "names_male",
     patronymics = "patronymics_male",
 }
-randomMalName.init()
 
---------------------------------------------------------------------------------
-random = new.Random()
-random.init()
-
-dofile ("./src/patterns/patterns.lua")      -- шаблоны персонажей.
-dofile ("./src/patterns/operations.lua")    -- операции над шаблонами.
-
---dofile ("test/find_test.lua")
-
-character_print(make_character(mal_pattern))
-print ""
 for i = 1, 20 do
-    character_print(make_character(fem_pattern))
+    print (randomFemalName.get())
+end
+
+for i = 1, 20 do
+    print (randomMalName.get())
 end
